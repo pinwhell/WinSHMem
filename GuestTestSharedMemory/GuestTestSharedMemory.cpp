@@ -1,6 +1,7 @@
 #include <iostream>
 #include <WindowsSharedMemory.h>
 #include <Communication.h>
+#include <conio.h>
 
 int main()
 {
@@ -19,4 +20,6 @@ int main()
 	printf("%s\n", guestAccess->mString);
 
 	guestAccess->mbWasReadedByGuest = true;
+
+	_getch();
 }

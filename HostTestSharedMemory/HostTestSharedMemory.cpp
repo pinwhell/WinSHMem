@@ -6,6 +6,7 @@
 #include <iostream>
 #include <WindowsSharedMemory.h>
 #include <Communication.h>
+#include <conio.h>
 
 int main()
 {
@@ -19,10 +20,12 @@ int main()
     strcpy(hostAccess->mString, "This is a Message Across Process\n");
     hostAccess->mbWasWritedByHost = true;
 
-    printf("Waiting Guest Read Message ...\n");
-
     while (hostAccess->mbWasReadedByGuest == false)
         Sleep(10);
+
+    printf("Guest Readed Message ...");
+
+    _getch();
 
     return 0;
 }
